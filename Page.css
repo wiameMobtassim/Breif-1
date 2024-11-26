@@ -1,0 +1,51 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:#3d3939;
+    padding: 10px 20px;
+}
+.navbar a {
+    color: rgb(80, 17, 33);
+    text-decoration: none;
+    padding: 14px 20px;
+    text-shadow: 2px 2px 4px rgb(206, 197, 197);
+}
+.navbar a:hover {
+    background-color: #575757;/*#575757*/
+}
+.logo {
+    display: flex;
+    align-items: center;
+}
+.logo img {
+    height: 40px; /* Ajustez la taille selon vos besoins */
+    margin-right: 10px; /* Espace entre le logo et le titre */
+    border-radius: 30%;
+    object-fit: cover;
+    margin-right: 10px;
+    
+}
+.logo h1 {
+    color: rgb(80, 17, 33);/*rgba(103, 10, 34, 0.536)*/
+    font-size: 24px; /* Ajustez la taille du titre selon vos besoins */
+    margin: 0; /* Supprime la marge par défaut */
+    font-family: Arial, Helvetica, sans-serif;
+    text-shadow: 2px 2px 4px rgb(206, 197, 197);
+}
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .navbar a {
+        padding: 10px 15px;
+        width: 100%;
+        text-align: left;
+    }
+}
