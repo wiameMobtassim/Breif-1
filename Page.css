@@ -2,18 +2,21 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color:#3d3939;
-    padding: 10px 20px;
+    background-color:#8c7373;
+    padding: 5px 10px;
 }
 .navbar a {
     color: rgb(80, 17, 33);
     text-decoration: none;
-    padding: 14px 20px;
+    padding: 10px 20px;
     text-shadow: 2px 2px 4px rgb(206, 197, 197);
 }
 .navbar a:hover {
@@ -24,11 +27,13 @@ body {
     align-items: center;
 }
 .logo img {
-    height: 40px; /* Ajustez la taille selon vos besoins */
-    margin-right: 10px; /* Espace entre le logo et le titre */
-    border-radius: 30%;
+    height: 50px; /* Ajustez la taille selon vos besoins */
+    width: 50px;
+    margin-right: 20px; /* Espace entre le logo et le titre */
+    border-radius: 35%;
     object-fit: cover;
     margin-right: 10px;
+
     
 }
 .logo h1 {
@@ -49,3 +54,63 @@ body {
         text-align: left;
     }
 }
+.content{
+    
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+   /* background-color: rgb(80, 17, 33);*/
+   background: url(background.jpeg);
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+footer {
+    background-color: #8c7373;
+    color: rgb(80, 17, 33);
+    text-align: center;
+    padding: 20px 0;
+}
+
+a{
+    color:rgb(80, 17, 33); 
+    margin: 0 15px; 
+    text-decoration: none;
+    text-shadow: 2px 2px 4px rgb(206, 197, 197);
+}
+
+footer a {
+    color: rgb(80, 17, 33);
+    margin: 0 20px;
+    text-decoration: none;
+}
+img{
+    height: 30px;
+    width: 30px;
+    margin: 10px;
+    padding: 0px;
+}
+.btn {
+    transition: all 0.3s ease-in-out;
+    font-family: "Dosis", sans-serif;
+  }
+  
+  .btn {
+    width: 160px;
+    height: 30px;
+    border-radius: 50px;
+    background-color: rgb(80, 17, 33);
+    box-shadow: 0 20px 30px -6px rgb(206, 197, 197, 1.5);
+    outline: none;
+    cursor: pointer;
+    border: none;
+    color: #8c7373;
+  }
+  
+  .btn:hover {
+    transform: translateY(3px);
+    box-shadow: none;
+  }
+  
+  .btn:active {
+    opacity: 0.5;
+  }
