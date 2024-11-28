@@ -5,13 +5,14 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-color: #420707;
 }
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color:#8c7373;
-    padding: 5px 10px;
+    padding: 1px 10px;
 }
 .navbar a {
     color: rgb(80, 17, 33);
@@ -20,7 +21,8 @@ body {
     text-shadow: 2px 2px 4px rgb(206, 197, 197);
 }
 .navbar a:hover {
-    background-color: #575757;/*#575757*/
+    background-color: #cabdbd;/*#575757*/
+    border-radius: 20%;
 }
 .logo {
     display: flex;
@@ -33,8 +35,6 @@ body {
     border-radius: 35%;
     object-fit: cover;
     margin-right: 10px;
-
-    
 }
 .logo h1 {
     color: rgb(80, 17, 33);/*rgba(103, 10, 34, 0.536)*/
@@ -55,15 +55,145 @@ body {
     }
 }
 .content{
-    
-    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%; 
+}
+.mainCard{
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Deux colonnes de même largeur */
+    gap: 20px; /* Espacement entre les colonnes */
+    padding: 20px;
+}
+
+.card {
     display: flex;
     flex-direction: column;
-   /* background-color: rgb(80, 17, 33);*/
-   background: url(background.jpeg);
-   background-repeat: no-repeat;
-   background-size: cover;
+    align-items: center;
+    background-color: #877777;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgb(128, 14, 63,1.2);
+    padding: 10px;
+    max-width: 100%; /* Prevent overflow */
+    overflow: hidden;
+    margin: 10px auto;
 }
+
+.card img {
+    width: 300px;
+    height: 250px; /* Image occupe 50% de la largeur */
+    object-fit: cover;
+    border-right: 2px solid #9a5a5a;
+    border-radius: 15%;
+}
+
+.card-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+}
+
+.card-content h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #420707;
+    text-align: center;
+}
+
+.card-content p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.card-content .price {
+    font-size: 30px;
+    font-weight: bold;
+    color: #420707;
+    margin: 20px;
+    
+}
+
+.card-content .old-price {
+    font-size: 20px;
+    text-decoration: line-through;
+    color: #c4c4c4;
+    margin: 30px;
+}
+
+/* Centrer le formulaire */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 250vh; /* Centrer verticalement */
+    text-align: left;
+    background-color: #877777; /* Fond semi-transparent pour le formulaire *//*rgb(78, 15, 15)*/
+    box-shadow: 0 4px 8px rgba(12, 12, 12, 2.2);
+    width: 100%;
+    max-width: 600px; /* Largeur maximale pour le formulaire */
+    margin: 50px auto; /* Espacement du formulaire par rapport aux bords de l'écran */
+    padding: 20px;
+    border-radius: 8px;
+}
+h2{
+    color: #420707;
+    font-size: 30px;
+    text-align: center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+label{
+   color: #420707;
+   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"]
+{
+    width: 500px;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background-color: #420707;
+    box-sizing: border-box;
+}
+.W1{
+    width: 250px;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 0 5px 10px rgb(238, 79, 92,1.2);
+}
+
+button {
+    display: block;
+    margin:10px auto;
+    width: 200px;
+    padding: 10px;
+    border: none;
+    background-color: #420707;
+    justify-content: center;
+    color: #877777;
+    font-size: 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #b12983
+}
+
+
 footer {
     background-color: #8c7373;
     color: rgb(80, 17, 33);
@@ -73,8 +203,7 @@ footer {
 
 a{
     color:rgb(80, 17, 33); 
-    margin: 0 15px; 
-    text-decoration: none;
+    margin: 0 5px; 
     text-shadow: 2px 2px 4px rgb(206, 197, 197);
 }
 
@@ -114,6 +243,40 @@ img{
   .btn:active {
     opacity: 0.5;
   }
+  .imgg1{
+    height: 150px;
+    width: 150px;
+    border-radius: 0%;
+  }
+
+
+  .btn1 {
+    transition: all 0.3s ease-in-out;
+    font-family: "Dosis", sans-serif;
+  }
+  
+  .btn1 {
+    width: 200px;
+    height: 40px;
+    border-radius: 50px;
+    background-color: rgb(80, 17, 33);
+    box-shadow: 0 20px 30px -6px rgb(206, 197, 197, 1.5);
+    outline: none;
+    cursor: pointer;
+    border: none;
+    color: #8c7373;
+  }
+  
+  .btn1:hover {
+    transform: translateY(3px);
+    box-shadow: none;
+  }
+  
+  .btn1:active {
+    opacity: 0.5;
+  }
+
+
 
 
 
