@@ -19,6 +19,7 @@
 
         </div>
     </div>
+    <div class = "mainCard" >
     <div class="card">
         <img src="product1.jpeg" alt="Produit">
         <div class="card-content">
@@ -61,8 +62,38 @@
             <p class="price">60.00 DH</p>
             <p class="old-price">120.00 DH</p>
             <button class="btn1">Acheter maintenant</button>
-        </div>
     </div>
+    </div>
+    </div>
+
+    <section id="commandez maintenant class="form-container">
+        <form>
+            <h2>Commandez maintenant</h2>
+            <label for="NomPrenom">Nom et Prènom</label><br>
+            <input type="text" id="NomPrenom" name="NomPrenom" placeholder="Entrez votre Nom et Prènom" class="W1"required><br>
+
+            <label for="email">Email</label><br>
+            <input type="email" id="email" name="email" placeholder="Entrez votre Email"class="W1" required><br>
+
+            <label for="adresse">Adresse</label><br>
+            <input type="text" id="adresse" name="adresse" placeholder="Entrez votre Adresse"class="W1" required><br>
+
+            <label for="Numero">Numéro de téléphone</label><br>
+            <input type="tel" id="Numero" name="Numero" placeholder="Entrez votre Numéro de téléphone " class="W1"required><br>
+
+            <label for="codePostal">Code Postal</label><br>
+            <input type="text" id="codePostal" name="codePostal" placeholder="Entrez votre Code postal" class="W1" required><br>
+
+            <label for="quantité">Quantité</label><br>
+            <input type="text" id="quantité" name="quantité" placeholder="Entrez votre Quantité" class="W1"required><br>
+
+            <label for="total">Total de la commande (DH)</label><br>
+           <input type="text" id="total"name="total" value="0"class="W1" readonly><br>
+
+           <button type="submit" class="submit-btn">Passez la commande</button>
+           <button id="closeForm"class="cancelbtn">Annuler </button> 
+        </form>
+    </section>   
      
 
     <footer>
