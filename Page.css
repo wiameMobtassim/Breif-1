@@ -4,8 +4,12 @@ body {
     padding: 0;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     min-height: 100vh;
     background-color: #420707;
+    height: 100vh;
+    color: aliceblue;
+
 }
 .navbar {
     display: flex;
@@ -59,26 +63,30 @@ body {
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 20px;
-    width: 100%;
-
-    
+    width: 100%; 
+}
+.mainCard{
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Deux colonnes de même largeur */
+    gap: 20px; /* Espacement entre les colonnes */
+    padding: 20px;
 }
 
 .card {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
     background-color: #877777;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgb(128, 14, 63,1.2);
-    width: 1200px;
     padding: 10px;
-    max-width: 100%;
+    max-width: 100%; /* Prevent overflow */
     overflow: hidden;
-    margin: 10px;
+    margin: 10px auto;
 }
 
 .card img {
-    width: 250px;
+    width: 300px;
     height: 250px; /* Image occupe 50% de la largeur */
     object-fit: cover;
     border-right: 2px solid #9a5a5a;
@@ -97,12 +105,14 @@ body {
     margin: 0;
     font-size: 24px;
     color: #420707;
+    text-align: center;
 }
 
 .card-content p {
     margin: 10px 0;
     font-size: 16px;
     color: #ffffff;
+    text-align: center;
 }
 
 .card-content .price {
@@ -110,6 +120,7 @@ body {
     font-weight: bold;
     color: #420707;
     margin: 20px;
+    text-align: center;
     
 }
 
@@ -118,9 +129,107 @@ body {
     text-decoration: line-through;
     color: #c4c4c4;
     margin: 30px;
+    text-align: center;
 }
 
+.btn1 {
+    transition: all 0.3s ease-in-out;
+    font-family: "Dosis", sans-serif;
+  }
+  
+  .btn1 {
+    display: block;
+    margin:0px auto;
+    width: 200px;
+    height: 40px;
+    border-radius: 50px;
+    background-color: rgb(80, 17, 33);
+    box-shadow: 0 20px 30px -6px rgb(206, 197, 197, 1.5);
+    outline: none;
+    cursor: pointer;
+    border: none;
+    color: #8c7373;
+    text-align: center;
+  }
+  
+  .btn1:hover {
+    transform: translateY(3px);
+    box-shadow: none;
+  }
+  
+  .btn1:active {
+    opacity: 0.5;
+  }
 
+
+
+/* Centrer le formulaire */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 250vh; /* Centrer verticalement */
+    text-align: left;
+    background-color: #877777; /* Fond semi-transparent pour le formulaire */
+    box-shadow: 0 4px 8px rgba(12, 12, 12, 2.2);
+    width: 100%;
+    max-width: 600px; /* Largeur maximale pour le formulaire */
+    margin: 50px auto; /* Espacement du formulaire par rapport aux bords de l'écran */
+    padding: 20px;
+    border-radius: 8px;
+}
+h2{
+    color: #420707;
+    font-size: 30px;
+    text-align: center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+label{
+   color: #420707;
+   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"]
+{
+    width: 500px;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #aca3a3;
+    border-radius: 20px;
+    background-color: #420707;
+    box-sizing: border-box;
+    color: rgb(255, 255, 255);
+}
+.W1{
+    width: 250px;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 0 5px 10px rgb(206, 197, 197, 1.5);
+}
+
+button {
+    display: block;
+    margin:0px auto;
+    width: 200px;
+    padding: 10px;
+    border: none;
+    background-color: #420707;
+    justify-content: center;
+    color: #877777;
+    font-size: 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #ccb2c3
+}
 
 footer {
     background-color: #8c7373;
@@ -153,9 +262,9 @@ img{
   
   .btn {
     width: 160px;
-    height: 30px;
+    height: 40px;
     border-radius: 50px;
-    background-color: rgb(80, 17, 33);
+    background-color: #420707;
     box-shadow: 0 20px 30px -6px rgb(206, 197, 197, 1.5);
     outline: none;
     cursor: pointer;
@@ -177,29 +286,3 @@ img{
     border-radius: 0%;
   }
 
-
-  .btn1 {
-    transition: all 0.3s ease-in-out;
-    font-family: "Dosis", sans-serif;
-  }
-  
-  .btn1 {
-    width: 500px;
-    height: 40px;
-    border-radius: 50px;
-    background-color: rgb(80, 17, 33);
-    box-shadow: 0 20px 30px -6px rgb(206, 197, 197, 1.5);
-    outline: none;
-    cursor: pointer;
-    border: none;
-    color: #8c7373;
-  }
-  
-  .btn1:hover {
-    transform: translateY(3px);
-    box-shadow: none;
-  }
-  
-  .btn1:active {
-    opacity: 0.5;
-  }
