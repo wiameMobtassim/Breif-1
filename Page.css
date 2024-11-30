@@ -1,28 +1,27 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
     min-height: 100vh;
     background-color: #420707;
-    height: 100vh;
     color: aliceblue;
-
 }
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color:#8c7373;
-    padding: 1px 10px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 10px 20px;
 }
 .navbar a {
     color: rgb(80, 17, 33);
     text-decoration: none;
     padding: 10px 20px;
     text-shadow: 2px 2px 4px rgb(206, 197, 197);
+    font-size: 16px; 
 }
 .navbar a:hover {
     background-color: #cabdbd;/*#575757*/
@@ -47,31 +46,123 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     text-shadow: 2px 2px 4px rgb(206, 197, 197);
 }
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .navbar {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
     }
     .navbar a {
-        padding: 10px 15px;
         width: 100%;
-        text-align: left;
+        text-align: center;
+        padding: 12px 20px; /* Ajuster le padding pour un meilleur affichage */
+        font-size: 14px;
+    }
+    .logo img {
+        height: 35px; /* Réduire la taille du logo sur téléphone */
+        width: 35px;
+    }
+    .logo h1 {
+        font-size: 18px; /* Réduire la taille du titre sur téléphone */
     }
 }
-.content{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 20px;
-    width: 100%; 
+/* Pour les téléphones plus petits */
+@media (max-width: 480px) {
+    .navbar {
+        padding: 8px 10px;
+    }
+    .navbar a {
+        font-size: 12px; /* Réduire la taille des liens encore plus sur petits écrans */
+        padding: 10px 15px;
+    }
+    .logo img {
+        height: 30px; /* Taille encore plus petite du logo sur petits écrans */
+        width: 30px;
+    }
+    .logo h1 {
+        font-size: 16px; /* Taille encore plus petite du titre sur petits écrans */
+    }
 }
+
+.gallery {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    height: 500px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+  .image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+    transform: scale(1.2); /* Zoom léger pour transition */
+  }
+  .image-container.active {
+    opacity: 1;
+    transform: scale(1);
+  }
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  /* Flèches de navigation */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(113, 85, 85, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 1000;
+  }
+  .arrow:hover {
+    background-color: rgba(77, 16, 16, 0.8);
+  }
+  .left-arrow {
+    left: 10px;
+  }
+  .right-arrow {
+    right: 10px;
+  }
+/* Pour les téléphones (écrans entre 480px et 768px) */
+@media (max-width: 768px) {
+    .gallery {
+        height: 300px; /* Réduire la hauteur de la galerie sur téléphone */
+    }
+    .image-container {
+        transform: scale(1); /* Pas de zoom sur téléphone */
+    }
+    .arrow {
+        padding: 6px 12px;
+        font-size: 18px; /* Réduire encore la taille des flèches */
+    }
+}
+/* Pour les petits téléphones (moins de 480px) */
+@media (max-width: 480px) {
+    .gallery {
+        height: 250px; /* Réduire encore la hauteur de la galerie pour petits écrans */
+    }
+    .arrow {
+        padding: 5px 10px;
+        font-size: 16px; /* Taille minimale pour les flèches */
+    }
+}
+
 .mainCard{
     display: grid;
     grid-template-columns: 1fr 1fr; /* Deux colonnes de même largeur */
     gap: 20px; /* Espacement entre les colonnes */
     padding: 20px;
 }
-
 .card {
     display: flex;
     flex-direction: column;
@@ -84,15 +175,13 @@ body {
     overflow: hidden;
     margin: 10px auto;
 }
-
 .card img {
     width: 300px;
-    height: 250px; /* Image occupe 50% de la largeur */
+    height: auto; 
     object-fit: cover;
     border-right: 2px solid #9a5a5a;
     border-radius: 15%;
 }
-
 .card-content {
     padding: 20px;
     display: flex;
@@ -100,30 +189,25 @@ body {
     justify-content: center;
     width: 50%;
 }
-
 .card-content h1 {
     margin: 0;
     font-size: 24px;
     color: #420707;
     text-align: center;
 }
-
 .card-content p {
     margin: 10px 0;
     font-size: 16px;
     color: #ffffff;
     text-align: center;
 }
-
 .card-content .price {
     font-size: 30px;
     font-weight: bold;
     color: #420707;
     margin: 20px;
     text-align: center;
-    
 }
-
 .card-content .old-price {
     font-size: 20px;
     text-decoration: line-through;
@@ -131,12 +215,10 @@ body {
     margin: 30px;
     text-align: center;
 }
-
 .btn1 {
     transition: all 0.3s ease-in-out;
-    font-family: "Dosis", sans-serif;
-  }
-  
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  } 
   .btn1 {
     display: block;
     margin:0px auto;
@@ -151,18 +233,44 @@ body {
     color: #8c7373;
     text-align: center;
   }
-  
   .btn1:hover {
     transform: translateY(3px);
     box-shadow: none;
   }
-  
   .btn1:active {
     opacity: 0.5;
   }
-
-
-
+/* Pour les téléphones (écrans entre 480px et 768px) */
+@media (max-width: 768px) {
+    .mainCard {
+        grid-template-columns: 1fr; /* Une seule colonne pour les téléphones */
+        gap: 10px; /* Réduire l'espacement entre les cartes */
+    }
+    .card {
+        margin: 10px auto; /* Réduire l'espace autour des cartes */
+    }
+    .card-content {
+        width: 100%; /* Utiliser toute la largeur de la carte */
+    }
+    .card img {
+        width: 100%; /* L'image prend toute la largeur disponible */
+        height: auto; /* Maintenir l'aspect ratio de l'image */
+    }
+}
+/* Pour les petits téléphones (moins de 480px) */
+@media (max-width: 480px) {
+    .mainCard {
+        padding: 10px; /* Réduire le padding des cartes */
+    }
+    .card img {
+        width: 100%; /* L'image prend toute la largeur disponible */
+        height: auto; /* Maintenir l'aspect ratio de l'image */
+    }
+    .btn1 {
+        width: 180px; /* Réduire la taille du bouton */
+        height: 35px; /* Réduire la taille du bouton */
+    }
+}
 /* Centrer le formulaire */
 .container {
     display: flex;
@@ -174,6 +282,7 @@ body {
     background-color: #877777; /* Fond semi-transparent pour le formulaire */
     box-shadow: 0 4px 8px rgba(12, 12, 12, 2.2);
     width: 100%;
+    height: auto;
     max-width: 600px; /* Largeur maximale pour le formulaire */
     margin: 50px auto; /* Espacement du formulaire par rapport aux bords de l'écran */
     padding: 20px;
@@ -189,7 +298,6 @@ label{
    color: #420707;
    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
-
 input[type="text"],
 input[type="email"],
 input[type="number"]
@@ -211,7 +319,6 @@ input[type="number"]
     border: 1px solid #ccc;
     box-shadow: 0 5px 10px rgb(206, 197, 197, 1.5);
 }
-
 button {
     display: block;
     margin:0px auto;
@@ -226,9 +333,143 @@ button {
     cursor: pointer;
     transition: background-color 0.3s;
 }
-
 button:hover {
     background-color: #ccb2c3
+}
+/* Pour les téléphones (écrans entre 480px et 768px) */
+@media (max-width: 768px) {
+    .container {
+        width: 95%; /* Réduire encore la largeur pour les petits écrans */
+        padding: 10px; /* Réduire le padding */
+        margin: 20px auto; /* Espacement autour du formulaire */
+    }
+
+    h2 {
+        font-size: 22px; /* Réduire la taille du titre */
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    .W1 {
+        width: 100%; /* Champs prennent toute la largeur */
+        padding: 8px; /* Réduire la taille des champs */
+    }
+    button {
+        width: 100%; /* Bouton prend toute la largeur */
+        padding: 12px; /* Ajuster la taille du bouton */
+    }
+}
+/* Pour les petits téléphones (moins de 480px) */
+@media (max-width: 480px) {
+    .container {
+        width: 100%; /* Occuper toute la largeur de l'écran */
+        padding: 10px; /* Réduire le padding */
+        margin: 10px auto; /* Espacement autour du formulaire */
+    }
+    h2 {
+        font-size: 20px; /* Réduire davantage la taille du titre */
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    .W1 {
+        width: 100%; /* Champs prennent toute la largeur */
+        padding: 6px; /* Réduire encore la taille des champs */
+    }
+    button {
+        width: 100%; /* Le bouton prend toute la largeur */
+        padding: 10px; /* Réduire la taille du bouton */
+        font-size: 14px; /* Réduire la taille du texte du bouton */
+    }
+}
+/* Styles pour le conteneur de la table */
+.tableau {
+    width: 80%;
+    margin: 50px auto;
+    background-color: #877777;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(128, 14, 63, 0.8);
+}
+/* Titre de la table */
+.tableau h2 {
+    color: #420707;
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-bottom: 20px;
+}
+/* Styles de la table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+}
+/* Styles pour les en-têtes de colonnes */
+thead th {
+    background-color: #420707;
+    color: #ffffff;
+    text-align: left;
+    padding: 12px;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+/* Bordures des cellules */
+th, td {
+    border: 1px solid #9a5a5a;
+    padding: 12px;
+}
+/* Style des lignes du tableau */
+tbody tr:nth-child(even) {
+    background-color: #cabdbd; /* Ligne paire */
+}
+tbody tr:nth-child(odd) {
+    background-color: #f5eeee; /* Ligne impaire */
+}
+/* Texte dans les cellules */
+td {
+    color: #420707;
+    font-size: 14px;
+    text-align: left;
+}
+/* Style au survol de la souris */
+tbody tr:hover {
+    background-color: #9a5a5a;
+    color: #ffffff;
+}
+/* Pour les téléphones (écrans entre 480px et 768px) */
+@media (max-width: 768px) {
+    .tableau {
+        width: 100%; /* Le tableau prend toute la largeur disponible */
+        padding: 5px; /* Réduire le padding pour les petits écrans */
+        margin: 10px auto; /* Réduire l'espace autour du tableau */
+    }
+    table {
+        font-size: 12px; /* Réduire la taille de la police pour mieux s'adapter */
+    }
+    th, td {
+        padding: 6px; /* Réduire les espacements dans les cellules */
+    }
+    td {
+        font-size: 10px; /* Réduire la taille du texte dans les cellules */
+    }
+}
+/* Pour les petits téléphones (moins de 480px) */
+@media (max-width: 480px) {
+    .tableau {
+        width: 100%; /* Le tableau prend toute la largeur disponible */
+        padding: 5px; /* Réduire le padding */
+        margin: 10px auto; /* Réduire l'espace autour du tableau */
+    }
+    table {
+        font-size: 10px; /* Réduire encore plus la taille de la police */
+    }
+    th, td {
+        padding: 4px; /* Réduire les espacements dans les cellules */
+    }
+    td {
+        font-size: 8px; /* Réduire la taille du texte dans les cellules */
+    }
 }
 
 footer {
@@ -237,13 +478,11 @@ footer {
     text-align: center;
     padding: 20px 0;
 }
-
 a{
     color:rgb(80, 17, 33); 
     margin: 0 5px; 
     text-shadow: 2px 2px 4px rgb(206, 197, 197);
 }
-
 footer a {
     color: rgb(80, 17, 33);
     margin: 0 20px;
@@ -259,9 +498,8 @@ img{
     transition: all 0.3s ease-in-out;
     font-family: "Dosis", sans-serif;
   }
-  
   .btn {
-    width: 160px;
+    width: 180px;
     height: 40px;
     border-radius: 50px;
     background-color: #420707;
@@ -269,14 +507,11 @@ img{
     outline: none;
     cursor: pointer;
     border: none;
-    color: #8c7373;
   }
-  
   .btn:hover {
     transform: translateY(3px);
     box-shadow: none;
   }
-  
   .btn:active {
     opacity: 0.5;
   }
@@ -285,4 +520,46 @@ img{
     width: 150px;
     border-radius: 0%;
   }
+  /* Pour les téléphones (écrans entre 480px et 768px) */
+@media (max-width: 768px) {
+    footer {
+        padding: 10px 0; /* Réduire le padding pour les petits écrans */
+    }
+    footer a {
+        margin: 0 8px; /* Réduire l'espace entre les liens */
+    }
+    .btn {
+        width: 140px; /* Réduire la largeur du bouton */
+        height: 35px;  /* Réduire la hauteur du bouton */
+    }
+    .imgg1 {
+        height: 100px; /* Réduire la taille de l'image */
+        width: 100px;  /* Réduire la taille de l'image */
+    }
+    /* Centrer les éléments au sein du footer */
+    footer {
+        text-align: center;
+    }
+}
+/* Pour les petits téléphones (moins de 480px) */
+@media (max-width: 480px) {
+    footer {
+        padding: 8px 0; /* Réduire le padding pour les petits écrans */
+    }
+    footer a {
+        margin: 0 5px; /* Réduire encore l'espace entre les liens */
+    }
+    .btn {
+        width: 130px; /* Réduire la largeur du bouton */
+        height: 40px;  /* Réduire la hauteur du bouton */
+    }
+    .imgg1 {
+        height: 80px; /* Réduire la taille de l'image */
+        width: 80px;  /* Réduire la taille de l'image */
+    }
+    /* Centrer les éléments au sein du footer */
+    footer {
+        text-align: center;
+    }
+}
 
