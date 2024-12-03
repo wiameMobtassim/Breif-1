@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Site Web de Beaute</title>
     <link rel="stylesheet" href="Page.css">
 </head>
 <body>
@@ -13,17 +13,21 @@
             <h1>ShineBeauty</h1>
         </div>
         <div>
-            <a href="#accueil">Accueil</a>
-            <a href="#produit">Produit</a>
-            <a href="#apropos">À propos</a>
+            <a href="#slide">Accueil</a>
+            <a href="#card">Produit</a>
+            <a href="#footer">À propos</a>
         </div>
     </div>
     <br>
     
     <!--slider-->
-    <div class="gallery">
+    <div class="gallery" id="slide">
+       
         <div class="image-container active" >
           <img src="slide1.webp" alt="Photo 1">
+          <div class="slide-text">
+            Bienvenue chez <span>ShineBeauty</span>
+          </div>
         </div>
         <div class="image-container" >
           <img src="slide2.webp" alt="Photo 2">
@@ -38,13 +42,13 @@
     <button class="arrow right-arrow">&#10095;</button> <!-- Flèche droite -->
      </div>
     
-    <div class = "mainCard" >
+    <div class = "mainCard" id="card">
     <div class="card">
         <img src="product1.jpeg" alt="Produit">
         <div class="card-content">
             <h1>Rouge à lèvre</h1>
-            <p><b>Description :</b> Ce rouge à lèvres Catrice offre une couleur intense et une finition satinée pour des lèvres élégantes et hydratées.</p>
-            <p><b>Ingredient :</b>Beurre de karite, Huile de jojoba, Cire d'abeille. </p>
+            <p><b>Description :</b> Ce rouge à lèvres offre une couleur intense et une finition satinée pour des lèvres élégantes et hydratées.</p>
+            <p><b>Ingredient :</b>Beurre de karite, Huile de jojoba, Cire d'abeille. </p><br>
             <p class="price">60.00 DH</p>
             <p class="old-price">120.00 DH</p>
             <button class="btn1" onclick="document.getElementById('form').scrollIntoView();">Acheter maintenant</button>
@@ -65,7 +69,7 @@
         <img src="product3.jpeg" alt="Produit">
         <div class="card-content">
             <h1>Mascara</h1>
-            <p><b>Description :</b> Le Glam & Doll Mascara de Catrice est votre allié pour des cils spectaculaires et définis. Sa brosse ergonomique en élastomère capture chaque cil, même les plus courts, pour un effet volume intense, une longueur infinie et une courbure parfaite.</p>
+            <p><b>Description :</b> Le Glam & Doll Mascara est votre allié pour des cils spectaculaires et définis. Sa brosse ergonomique en élastomère capture chaque cil, même les plus courts, pour un effet volume intense, une longueur infinie et une courbure parfaite.</p>
             <p><b>Ingredient :</b>Cire de carnauba, Glycerine, Pigments noirs intenses. </p>
             <p class="price">60.00 DH</p>
             <p class="old-price">120.00 DH</p>
@@ -77,7 +81,7 @@
         <div class="card-content">
             <h1>Blush</h1>
             <p><b>Description :</b> Ce blush à la texture soyeuse et légère s’applique facilement et se fond parfaitement à la peau, offrant une couleur modulable pour un effet naturel ou plus intense selon vos envies.</p>
-            <p><b>Ingredient :</b>Huile d'argan, Vitamine E, Mica, Pigments mineraux.</p>
+            <p><b>Ingredient :</b>Huile d'argan, Vitamine E, Mica, Pigments mineraux.</p><br><br>
             <p class="price">60.00 DH</p>
             <p class="old-price">120.00 DH</p>
             <button class="btn1" onclick="document.getElementById('form').scrollIntoView();">Acheter maintenant</button>
@@ -103,8 +107,17 @@
             <label for="codePostal">Code postal :</label><br><br>
             <input type="text" id="codePostal" name="codePostal" placeholder="Entrez votre Code postal " class="W1" required><br><br>
 
+            <label for="prdt">Selectionner un produit</label><br><br>
+            <select name="prdt" id="prdt" class="W1" required>
+                <option value="Selection">--Selectionner un produit--</option>
+                <option value="prdt1">Rouge à lèvre</option>
+                <option value="prdt2">Font de teint</option>
+                <option value="prdt3">Mascara</option>
+                <option value="prdt4">Blush</option>
+            </select><br><br>
+
             <label for="quantite">Quantité :</label><br><br>
-            <input type="text" id="quantite" name="quantite" placeholder="Entrez votre Quantite " class="W1" required><br><br>
+            <input type="number" id="quantite" name="quantite" placeholder="Entrez votre Quantite " class="W1" required><br><br>
 
             <label for="total">Total de la commande :</label><br><br>
             <input type="text" id="total" name="total" value="0" class="W1" readonly><br><br>
@@ -125,6 +138,7 @@
                     <th>adresse</th>
                     <th>numéro de téléphone</th>
                     <th>Quantité commandée</th>
+                    <th>produit</th>
                     <th>Total de la commande</th>
                     <th>Total </th>
                 </tr>
@@ -134,7 +148,7 @@
         </table>
     </div>
 
-    <footer>
+    <footer id="footer">
         <div>
             <p>&copy; 2024 ShineBeauty. Tous droits réservés.</p>
             <div>

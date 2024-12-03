@@ -11,8 +11,7 @@ function updateSlider() {
   slides.forEach((slide, index) => {
     slide.classList.remove('active');
     if (index === currentIndex) {
-      slide.classList.add('active');
-      // Met à jour le texte correspondant à l'image
+      slide.classList.add('active');// Met à jour le texte correspondant à l'image
       
     }
   });
@@ -42,6 +41,7 @@ const numeroInput = document.getElementById('numero');
 const boutonCommande = document.querySelector('.submit-btn');
 const tableauBody = document.getElementById('liste-ordonner');
 const boutonAnnuler = document.getElementById('FormAnnuler');
+const produitSelect = document.getElementById('prdt'); 
 
 // Met à jour le total dynamiquement en fonction de la quantité
 quantiteInput.addEventListener('input', function () {
@@ -75,14 +75,26 @@ boutonCommande.addEventListener('click', function(event) {
     const nomPrenom = document.getElementById('nomprenom').value.trim();
     const email = document.getElementById('email').value.trim();
     const adresse = document.getElementById('adresse').value.trim();
+    const numero = numeroInput.value.trim();
     const quantite = parseInt(quantiteInput.value.trim()) || 0;
     const total = parseFloat(totalInput.value.trim()) || 0;
+    const produit = produitSelect.options[produitSelect.selectedIndex].text; // Texte du produit sélectionné
 
     // Vérification que les champs ne sont pas vides et que la quantité et le total sont valides
-    if (!nomPrenom || !email || !adresse || !numeroInput.value || isNaN(quantite) || quantite <= 0 || isNaN(total)) {
+    if (!nomPrenom || !email || !adresse || !numero || isNaN(quantite) || quantite <= 0 || isNaN(total)) {
         alert("Veuillez remplir tous les champs correctement !");
         return;
     }
+    // Vérification que l'email contient '@'
+    if (!email.includes('@')) {
+        alert("Veuillez entrer une adresse e-mail valide contenant '@'.");
+        return;
+    }
+    // Vérification que le produit est sélectionné
+    if (produitSelect.value === "Selection") {
+      alert("Veuillez sélectionner un produit !");
+      return;
+  }
 
     // Créer une nouvelle ligne pour le tableau
     const nouvelleLigne = document.createElement('tr');
@@ -93,8 +105,9 @@ boutonCommande.addEventListener('click', function(event) {
         <td>${nomPrenom.split(' ')[1] || ''}</td>
         <td>${email}</td>
         <td>${adresse}</td>
-        <td>${numeroInput.value}</td>
+        <td>${numero}</td>
         <td>${quantite}</td>
+        <td>${produit}</td>
         <td>${(prixUnitaire * quantite).toFixed(2)} DH</td>
         <td>${total.toFixed(2)} DH</td>
     `;

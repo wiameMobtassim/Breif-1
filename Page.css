@@ -91,6 +91,26 @@ body {
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   }
+  /* Style pour le texte superposé */
+    .slide-text {
+        position: absolute;
+        top: 50%; /* Positionne au centre vertical */
+        left: 50%; /* Positionne au centre horizontal */
+        transform: translate(-50%, -50%); /* Centrage parfait */
+        background-color: rgba(0, 0, 0, 0.3);
+        color: #FAF3E0; /* Couleur du texte */
+        font-size: 50px; /* Taille du texte */
+        font-weight: bold;
+        padding: 15px 30px; /* Espacement interne */
+        border-radius: 30px; /* Coins arrondis */
+        text-align: center;
+    }
+    
+    .slide-text span {
+        color: #FAF3E0; /* Couleur dorée pour ShineBeauty */
+        font-style: italic; /* Met ShineBeauty en italique pour un effet stylé */
+    }
+  
   .image-container {
     position: absolute;
     top: 0;
@@ -256,6 +276,10 @@ body {
         width: 100%; /* L'image prend toute la largeur disponible */
         height: auto; /* Maintenir l'aspect ratio de l'image */
     }
+    .btn1 {
+        width: 180px; /* Réduire la taille du bouton */
+        height: 40px; /* Réduire la taille du bouton */
+    }
 }
 /* Pour les petits téléphones (moins de 480px) */
 @media (max-width: 480px) {
@@ -300,8 +324,8 @@ label{
 }
 input[type="text"],
 input[type="email"],
-input[type="number"]
-{
+input[type="number"],
+#prdt{
     width: 500px;
     padding: 10px;
     margin: 10px 0;
@@ -529,7 +553,7 @@ img{
         margin: 0 8px; /* Réduire l'espace entre les liens */
     }
     .btn {
-        width: 140px; /* Réduire la largeur du bouton */
+        width: 160px; /* Réduire la largeur du bouton */
         height: 35px;  /* Réduire la hauteur du bouton */
     }
     .imgg1 {
@@ -550,6 +574,7 @@ img{
         margin: 0 5px; /* Réduire encore l'espace entre les liens */
     }
     .btn {
+        text-align: center;
         width: 130px; /* Réduire la largeur du bouton */
         height: 40px;  /* Réduire la hauteur du bouton */
     }
